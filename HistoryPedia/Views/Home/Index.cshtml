@@ -1,0 +1,141 @@
+﻿@model HistoryPedia.Models.SearchArticle
+@{
+    ViewBag.Title = "All articles";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h1>
+                    Welcome to HistoryPedia!
+                </h1>
+            </div>
+            <blockquote class="blockquote text-right">
+                <p class="mb-0">
+                    History is a teacher of life.
+                </p>
+                <footer class="blockquote-footer">
+                    Marcus Tullius Cicero
+                </footer>
+            </blockquote>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>
+                Popular articles
+            </h3>
+            <div class="row">
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <a class="btn btn-outline-info btn-block" asp-action="Edit" asp-controller="Home">Add an article</a>
+                </div>
+                <div class="col-md-5">
+                </div>
+                <div class="col-md-4">
+                    <form method="get">
+                        <div class="form-inline form-group">
+                            <input name="name" class="form-control" />
+                            <input type="submit" value="Search" class="btn btn-outline-success" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+            </div>
+            <div class="row">
+                @foreach (var item in Model.Articles)
+                {
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img class="card-img-top" alt="Bootstrap Thumbnail First" src="@item.Image.Path">
+                            <div class="card-block">
+                                <h5 class="card-title">
+                                    @item.Name
+                                </h5>
+                                <p class="card-text">
+                                    @item.ShirtInfo
+                                </p>
+                                <p>
+                                    <a class="btn btn-primary" asp-action="Details" asp-controller="Home" asp-route-id="@item.Id">Learn more</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+    </div>
+    <h3>
+        Here is our chat
+    </h3>
+    @if (Model.User == null)
+    {
+        <h5>
+            You need to be <a asp-action="Login" asp-controller="Account">authorized</a> first
+        </h5>
+    }
+    else
+    {
+        <div class="row">
+        </div>
+        <h6>
+            You can ask your questions here or just relax
+        </h6>
+        <div class="row">
+        </div>
+
+        <div id="inputForm">
+            <div class="form-group">
+                <input type="text" disabled="disabled" id="author" value="@Model.User.UserName" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <input type="text" id="message" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <input type="button" id="sendBtn" value="Send" class="btn btn-outline-success btn-block"/>
+            </div>
+        </div>
+        <div id="chatroom"></div>
+        <script src="js/signalr/dist/browser/signalr.min.js"></script>
+        <script>
+            const hubConnection = new signalR.HubConnectionBuilder()
+                .withUrl("/chat")
+                .build();
+
+            let userName = '';
+
+            hubConnection.on("Send",
+                function(data, userName) {
+
+                    let userNameElem = document.createElement("b");
+                    userNameElem.appendChild(document.createTextNode(userName + ': ' ));
+
+
+                    let elem = document.createElement("p");
+                    elem.appendChild(userNameElem);
+                    elem.appendChild(document.createTextNode(data));
+
+                    let firstElem = document.getElementById("chatroom").firstChild;
+                    document.getElementById("chatroom").insertBefore(elem, firstElem);
+
+                });
+
+            document.getElementById("sendBtn").addEventListener("click",
+                function(e) {
+                    let message = document.getElementById("message").value;
+                    userName = document.getElementById("author").value;
+
+                    hubConnection.invoke("Send", message, userName);
+                });
+
+            hubConnection.start();
+        </script>
+    }
+</div>

@@ -1,0 +1,82 @@
+﻿@using System.Net
+@model HistoryPedia.Models.Article
+@{
+    ViewBag.Title = Model.Name;
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h1>
+                    @Model.Name
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <p class="text-left">
+                @Model.Info
+            </p>
+        </div>
+        <div class="col-md-3" style="margin: 0 auto;">
+            <img alt="Bootstrap Image Preview" src="@Model.Image.Path" style=" width: 350px; margin-bottom: 60px; padding: 45px 45px 70px 45px; display: inline-block; margin-right: 90px; ">
+        </div>
+    </div>
+
+    @foreach (var item in Model.Blocks)
+    {
+        
+        <div class="row">
+            <div class="col-md-12">
+                <h2>
+                    @item.BlockName
+                </h2>
+                <p>
+                   @item.Text
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <img alt="Bootstrap Image Preview" src="@item.Image.Path" class="img-thumbnail">
+                <p class="text-center">
+                    @item.Image.Text
+                </p>
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-md-2">
+            @if (Model.UserId == null)
+            {
+                <a type="button" class="btn btn-block btn-outline-info" asp-action="AddToFavorite" asp-controller="Favorite" asp-route-id="@Model.Id">
+                    Add to favorite
+                </a>
+            }
+            else
+            {
+                <a type="button" class="btn btn-block btn-outline-danger" asp-action="RemoveFromFavorite" asp-controller="Favorite" asp-route-id="@Model.Id">
+                    Remove from favorite
+                </a>
+            }
+        </div>
+        <div class="col-md-8">
+        </div>
+        <div class="col-md-2">
+            <a type="button" class="btn btn-block btn-outline-warning" asp-action="Edit" asp-controller="Home" asp-route-id="@Model.Id">
+                Edit
+            </a>
+            <a type="button" class="btn btn-block btn-outline-danger" asp-action="Delete" asp-controller="Home" asp-route-id="@Model.Id">
+                Delete
+            </a>
+        </div>
+    </div>
+</div>
