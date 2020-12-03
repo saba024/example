@@ -1,0 +1,50 @@
+﻿<Properties StartupConfiguration="{C1A12D20-91C7-4DED-8106-5627A0BCCFDE}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HistoryPedia/Controllers/HomeController.cs">
+    <Files>
+      <File FileName="HistoryPedia/Data/ApplicationDbContext.cs" Line="1" Column="1" />
+      <File FileName="HistoryPedia/Data/DataClass.cs" Line="13" Column="41" />
+      <File FileName="HistoryPedia/Data/EmailService.cs" Line="1" Column="1" />
+      <File FileName="HistoryPedia/Data/ManyToManyLink.cs" Line="1" Column="1" />
+      <File FileName="HistoryPedia/Models/ApplicationContext.cs" Line="6" Column="1" />
+      <File FileName="HistoryPedia/Models/ArticleContext.cs" Line="7" Column="1" />
+      <File FileName="HistoryPedia/libman.json" Line="1" Column="1" />
+      <File FileName="HistoryPedia/Startup.cs" Line="46" Column="1" />
+      <File FileName="HistoryPedia/appsettings.Development.json" Line="1" Column="1" />
+      <File FileName="HistoryPedia/appsettings.json" Line="4" Column="6" />
+      <File FileName="HistoryPedia/Migrations/20201203173304_Inital.Designer.cs" Line="13" Column="23" />
+      <File FileName="HistoryPedia/Migrations/ApplicationContextModelSnapshot.cs" Line="12" Column="23" />
+      <File FileName="HistoryPedia/Migrations/Article/20201203173423_Inital.Designer.cs" Line="13" Column="23" />
+      <File FileName="HistoryPedia/Migrations/Article/ArticleContextModelSnapshot.cs" Line="12" Column="23" />
+      <File FileName="HistoryPedia/Controllers/HomeController.cs" Line="27" Column="94" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HistoryPedia" expanded="True">
+            <Node name="HistoryPedia" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="HomeController.cs" selected="True" />
+              </Node>
+              <Node name="Data" expanded="True" />
+              <Node name="Migrations" expanded="True">
+                <Node name="Article" expanded="True">
+                  <Node name="20201203173423_Inital.cs" expanded="True" />
+                </Node>
+                <Node name="20201203173304_Inital.cs" expanded="True" />
+              </Node>
+              <Node name="Models" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.HistoryPedia PreferredExecutionTarget="/Applications/Safari.app" />
+</Properties>

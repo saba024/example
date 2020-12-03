@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace HistoryPedia.Models
+namespace HistoryPedia.Data
 {
     public class ApplicationContext : IdentityDbContext<User>
     {

@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Web;
 using HistoryPedia.signalR;
 using Microsoft.AspNetCore.SignalR;
+using HistoryPedia.Data;
 
 namespace HistoryPedia.Controllers
 {

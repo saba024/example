@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using HistoryPedia.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace HistoryPedia.Models
+
+namespace HistoryPedia.Data
 {
     public class ArticleContext : DbContext
     {
